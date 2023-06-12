@@ -15,6 +15,7 @@ builder.Services.AddCors(options =>
                               policy =>
                               {
                                   policy.AllowAnyOrigin()
+                                  //policy.WithOrigin("http://Zealand.dk", "");
                                   .AllowAnyMethod()
                                   .AllowAnyHeader();
                               });
@@ -29,7 +30,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-bool useSql = true;
+bool useSql = false;
 if (useSql)
 {
     builder.Services.AddScoped<ITempRepository, TempDbRepository>();
